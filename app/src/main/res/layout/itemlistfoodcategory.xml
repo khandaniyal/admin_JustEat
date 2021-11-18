@@ -3,48 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ListPart"
-        android:layout_width="match_parent"
-        android:layout_height="119dp"
-        android:layout_marginBottom="612dp"
-        android:background="#223BC8"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+    android:layout_height="119dp">
 
         <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="119dp"
+            android:id="@+id/imageDishPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/pollo2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:srcCompat="@drawable/ic_launcher_background"
+            tools:layout_editor_absoluteX="151dp"
+            tools:layout_editor_absoluteY="5dp" />
 
         <TextView
             android:id="@+id/txtDishName"
             android:layout_width="wrap_content"
-            android:layout_height="19dp"
-            android:layout_marginStart="176dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="177dp"
-            android:layout_marginBottom="50dp"
-            android:text="Pollo a la brasa"
+            android:layout_height="wrap_content"
+            android:text="TextView"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

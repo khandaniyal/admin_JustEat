@@ -1,5 +1,7 @@
 package com.example.admin_justeat;
 
+import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private final ArrayList<String> array_names;
-    private final ArrayList<View> array_imagePaths;
+    private  ArrayList<String> array_names;
+    private  ArrayList<Drawable> array_imagePaths;
    // private ArrayList<String> array_definition;
 
-    public RecyclerViewAdapter(ArrayList<String> arrN, ArrayList<View> arrI){
+    public RecyclerViewAdapter(ArrayList<String> arrN , ArrayList<Drawable> arrI){
         array_names = arrN;
         array_imagePaths = arrI;
         //array_definition = arrD;
@@ -35,6 +37,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tagName.setText(array_names.get(position));
+        holder.tagImage.setImageDrawable(array_imagePaths.get(position));
+
     }
 
     @Override
@@ -49,8 +53,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            Log.i("arrayList2", ""+array_names.size());
             tagName = itemView.findViewById(R.id.txtDishName);
-            tagImage = itemView.findViewById(R.id.imageView2);
+            tagImage = itemView.findViewById(R.id.imageDishPhoto);
             //Definition = itemView.findViewById(R.id.userName);
         }
     }
