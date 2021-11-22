@@ -2,13 +2,16 @@ package com.example.admin_justeat;
 
 import android.graphics.drawable.Drawable;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -56,7 +59,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             Log.i("arrayList2", ""+array_names.size());
             tagName = itemView.findViewById(R.id.txtDishName);
             tagImage = itemView.findViewById(R.id.imageDishPhoto);
-            //Definition = itemView.findViewById(R.id.userName);
+
+
+
         }
     }
 }

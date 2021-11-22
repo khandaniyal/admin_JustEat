@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         images.add(getDrawable(R.drawable.pollo2));
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
+
         Log.i("arrayList", ""+names.size());
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(names, images);
         recyclerView.setAdapter(adapter);
