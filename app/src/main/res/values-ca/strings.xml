@@ -5,4 +5,5 @@
     <string name="login_err">Error d\'autenticació</string>
     <string name="logout_button">Sortir</string>
     <string name="login_button">Iniciar sessió</string>
+    <string name="login_register">Registra</string>
 </resources>

@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth; // firebase session
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +32,19 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // Text fields
-        TextView loginFieldEmail = findViewById(R.id.login_field_email);
-        TextView loginFieldPassword = findViewById(R.id.login_field_password);
+        TextView loginFieldEmail = findViewById(R.id.ETEmail);
+        TextView loginFieldPassword = findViewById(R.id.ETPassword);
 
-        Button loginButton = findViewById(R.id.login_button);
+        Button loginButton = findViewById(R.id.register_button);
+        Button registerButton = findViewById(R.id.login_register);
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Read the values of the text fields and pass them to the login method
+                Intent register = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(register);
+            }
+        });
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                             // If Login is correct, load the Main activity
                             Log.d(TAG, "signInWithEmail:success");
                             Intent loginOK = new Intent(getApplicationContext(), MainActivity.class);
+
                             startActivity(loginOK);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -64,4 +75,5 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
+
 }
