@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         mDatabase= FirebaseDatabase.getInstance().getReference();
 
-        EditTextEmail = (EditText) findViewById(R.id.ETEmail);
+        EditTextEmail = findViewById(R.id.ETEmail);
         EditTextPassword= (EditText) findViewById(R.id.ETPassword);
         ButtonLogin= (Button) findViewById(R.id.register_button);
 
@@ -66,7 +66,6 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.i("prueba","hoal");
                         if (task.isSuccessful()) {
-                            // If Login is correct, load the Main activity
                             Map<String, Object> map =new HashMap<>();
                             map.put("email",email);
                             map.put("password",password);

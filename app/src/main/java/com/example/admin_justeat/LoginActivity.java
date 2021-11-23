@@ -76,4 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
+    @Override
+    public void onBackPressed() {
+    } // Disabling back button on Login screen to prevent "fake" logins
 }
