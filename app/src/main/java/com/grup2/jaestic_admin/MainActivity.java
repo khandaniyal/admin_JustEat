@@ -22,15 +22,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         mAuth = FirebaseAuth.getInstance(); // initialise firebase
+        Food.init();
+        FoodCategory.init();
 
         setContentView(R.layout.activity_main);
 
-        Button buttonLogout = findViewById(R.id.button_logout);
         TextView infoEmail = findViewById(R.id.info_email);
-        Button fuuds = findViewById(R.id.fuuds);
 
+        // Redirect to login screen.
         Intent goToLogin = new Intent(getApplicationContext(), LoginActivity.class);
-        Intent goToFoods = new Intent(getApplicationContext(), FoodList.class);
 
         if (null == mAuth.getCurrentUser()) {
             Log.i("Firebase", "No user logged in, redirecting to login screen");
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             infoEmail.setText(mAuth.getCurrentUser().getEmail());
         }
 
+        Button buttonLogout = findViewById(R.id.button_logout);
         buttonLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,12 +51,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // PROVISIONAL MENTRE NO IMPLEMENTEM EL MENÚ
+        Button fuuds = findViewById(R.id.fuuds);
+        Intent goToFoods = new Intent(getApplicationContext(), FoodList.class);
         fuuds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(goToFoods);
             }
         });
+
+        // PROVA DE CARREGAR DB
+        FoodCategory pasta = new FoodCategory("pasta", "mmmm deliciosa", -1);
+        pasta.addToDatabase();
+        Food ravioli = new Food("ravioli", "pasta quadrada amb coses dins", "DEFAULT", "1", 850, -1);
+        ravioli.addToDatabase();
 
     }
 }

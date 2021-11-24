@@ -13,17 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jaestic_admin.R;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private  ArrayList<String> array_names;
-    private  ArrayList<Drawable> array_imagePaths;
-   // private ArrayList<String> array_definition;
 
-    public RecyclerViewAdapter(ArrayList<String> arrN , ArrayList<Drawable> arrI){
-        array_names = arrN;
-        array_imagePaths = arrI;
-        //array_definition = arrD;
+    LinkedList<Food> foods;
+    public RecyclerViewAdapter(LinkedList<Food> foods){
+        this.foods = foods;
     }
 
     @NonNull
@@ -38,14 +34,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tagName.setText(array_names.get(position));
-        holder.tagImage.setImageDrawable(array_imagePaths.get(position));
+        holder.tagName.setText(foods.get(position).getName());
 
     }
 
     @Override
     public int getItemCount() {
-        return array_names.size();
+        return foods.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -55,7 +50,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            Log.i("arrayList2", ""+array_names.size());
             tagName = itemView.findViewById(R.id.txtDishName);
             tagImage = itemView.findViewById(R.id.imageDishPhoto);
 

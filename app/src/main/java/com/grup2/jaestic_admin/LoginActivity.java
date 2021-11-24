@@ -23,7 +23,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth; // firebase session
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,9 +63,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // If Login is correct, load the Main activity
                             Log.d(TAG, "signInWithEmail:success");
-                            Intent loginOK = new Intent(getApplicationContext(), MainActivity.class);
-
-                            startActivity(loginOK);
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
