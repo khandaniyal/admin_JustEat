@@ -1,4 +1,6 @@
 <resources>
+    <string name="app_name">Food</string>
+
     <string name="login_username">Email</string>
     <string name="login_pass">Password</string>
     <string name="login_err">Authentication failed</string>
@@ -6,5 +8,4 @@
     <string name="login_button">Log in</string>
     <string name="login_register">Sign in</string>
     <string name="login_google">Sign in with google</string>
-    <string name="default_web_client_id">942078009683-oma2vsfasofealpeuk0hv8qu2m2tsi01.apps.googleusercontent.com</string>
 </resources>
