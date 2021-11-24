@@ -1,15 +1,15 @@
 package com.example.admin_justeat;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 
 import java.util.ArrayList;
 
@@ -31,12 +31,20 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
         Log.i("arrayList", ""+names.size());
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(names, images);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(names, images,getFm());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager((this)));
 
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
+
+    }
+    public FragmentManager getFm(){
+        return getSupportFragmentManager();/*.beginTransaction().replace(R.id.container,new Fragment_Dish()).commit();*/
+
+    }
+    public void showDish(FragmentManager fragmentManager){
+        getFragmentManager().beginTransaction().replace(R.id.container,new Fragment_Dish()).commit();
     }
 
 }

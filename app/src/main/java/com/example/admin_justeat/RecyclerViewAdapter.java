@@ -13,18 +13,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+    private static FragmentManager fragmentManager;
     private  ArrayList<String> array_names;
     private  ArrayList<Drawable> array_imagePaths;
+
    // private ArrayList<String> array_definition;
 
-    public RecyclerViewAdapter(ArrayList<String> arrN , ArrayList<Drawable> arrI){
+    public RecyclerViewAdapter(ArrayList<String> arrN , ArrayList<Drawable> arrI, FragmentManager fragmentManager){
         array_names = arrN;
         array_imagePaths = arrI;
+        this.fragmentManager = fragmentManager;
         //array_definition = arrD;
     }
 
@@ -66,16 +71,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View v) {
                     Log.d("RecyclerView", "onClick：" + getAdapterPosition());
-                    new Fragment_Dish();
-                    getActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.Layout_container, nextFrag, "findThisFragment")
-                            .addToBackStack(null)
-                            .commit();
-
-
+                    new MainActivity();
                 }
             });
-
         }
+    }
+    public static void callFragment(){
+        MainActivity.showDish(fragmentManager);
     }
 }
