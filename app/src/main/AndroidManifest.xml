@@ -11,6 +11,9 @@
         android:theme="@style/Theme.Admin_JustEat"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".FoodList"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity

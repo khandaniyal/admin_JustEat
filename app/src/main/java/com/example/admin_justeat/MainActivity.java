@@ -26,8 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
         Button buttonLogout = findViewById(R.id.button_logout);
         TextView infoEmail = findViewById(R.id.info_email);
+        Button fuuds = findViewById(R.id.fuuds);
 
         Intent goToLogin = new Intent(getApplicationContext(), LoginActivity.class);
+        Intent goToFoods = new Intent(getApplicationContext(), FoodList.class);
 
         if (null == mAuth.getCurrentUser()) {
             Log.i("Firebase", "No user logged in, redirecting to login screen");
@@ -44,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mAuth.signOut();
                 startActivity(goToLogin);
+            }
+        });
+
+        fuuds.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(goToFoods);
             }
         });
 
