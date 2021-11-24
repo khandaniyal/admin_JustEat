@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -61,11 +62,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // PROVA DE CARREGAR DB
-        FoodCategory pasta = new FoodCategory("pasta", "mmmm deliciosa", -1);
-        pasta.addToDatabase();
-        Food ravioli = new Food("ravioli", "pasta quadrada amb coses dins", "DEFAULT", "1", 850, -1);
-        ravioli.addToDatabase();
 
+        // PROVA DE CARREGAR DB
+        FoodCategory.addToDatabase("pasta", "mmmm deliciosa");
+        Food.addToDatabase("ravioli", "pasta quadrada amb coses dins", "DEFAULT", "3", 850);
+        Food.addToDatabase("tagliatelle", "una cosa que esta molt bona", "DEFAULT", "3", 1000);
     }
 }

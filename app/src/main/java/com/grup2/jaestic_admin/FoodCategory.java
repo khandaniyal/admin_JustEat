@@ -14,8 +14,10 @@ import java.util.LinkedList;
 
 // Class to manage food categories
 public class FoodCategory {
-    // List of all categories
-    public static LinkedList<FoodCategory> categories = new LinkedList<>();
+    // List of all categories. It will be updated when the DB changes
+    public static LinkedList<FoodCategory> foods = new LinkedList<>();
+    // To ensure not repeating IDs, we will use a new number for each session and it will increase with each object added
+    private static long nextId = System.currentTimeMillis()-1700000000000L;
 
     private int id;
     private String name;
@@ -25,27 +27,23 @@ public class FoodCategory {
     public String getName() { return name; }
     public String getDescription() { return description; }
 
+    // Constructor is called with info from the database and creates java object. To add new Food item, use
+    // addToDatabase();
     public FoodCategory(String name, String description, int id) {
-        // Calculate the greatest "id" used
-        int greatestId = 0;
-        // for (FoodCategory cat : categories) if (cat.getId() > greatestId) greatestId = cat.getId();
-
         // Create the item
-        this.id = id < 0 ? greatestId+1 : id;
+        this.id = id;
         this.name = name;
         this.description = description;
-
-        // If this constructor is called to create a new item, it shall be added to the database
-        if (id < 0) this.addToDatabase();
-        // otherwise it means it is called just for update
     }
 
-    public void addToDatabase() {
+    public static void addToDatabase(String name, String description) {
         DatabaseReference catRef = FirebaseDatabase.getInstance().getReference()
                 .child("Categories")
-                .child(""+this.id);
-        catRef.child("name").setValue(this.name);
-        catRef.child("description").setValue(this.description);
+                .child(""+nextId);
+        catRef.child("name").setValue(name);
+        catRef.child("description").setValue(description);
+        // Increment next id
+        nextId++;
     }
 
     // Database reference for retrieving data
@@ -54,17 +52,7 @@ public class FoodCategory {
         FirebaseDatabase.getInstance().getReference().child("Categories").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                categories = new LinkedList<>();
-                // Snapshot corresponds to the Foods node, so we have to look at all child nodes (the food items themselves)
-                for (DataSnapshot catSnapshot : snapshot.getChildren()) {
-                    // For each food item, retrieve the data.
-                    int id = Integer.parseInt("0");
-                    String name = catSnapshot.child("name").getValue().toString();
-                    String description = catSnapshot.child("description").getValue().toString();
 
-                    categories.add(new FoodCategory(name, description, id));
-                }
-                Log.i("DIVAC", "There are " +categories.size()+ " categories");
             }
 
             @Override
