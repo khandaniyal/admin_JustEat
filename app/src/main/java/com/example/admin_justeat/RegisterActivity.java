@@ -50,8 +50,10 @@ public class RegisterActivity extends AppCompatActivity {
                 email=EditTextEmail.getText().toString();
                 password=EditTextPassword.getText().toString();
                 if (!email.isEmpty() && !password.isEmpty()){
-                    Log.i("prueba","ghoal");
-                    RegisterUser(email,password);
+                    if(password.length()>=6) {
+                        Log.i("prueba", "ghoal");
+                        RegisterUser(email, password);
+                    }
                 }
 
 
@@ -76,8 +78,9 @@ public class RegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task2) {
                                     if(task2.isSuccessful()){
-                                        Intent registerok = new Intent(getApplicationContext(), MainActivity.class);
-                                        startActivity(registerok);
+                                        Log.i("prueba2","hoal");
+                                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
                                     }else{
 
                                     }
