@@ -1,4 +1,4 @@
-package com.example.admin_justeat;
+package com.grup2.jaestic_admin;
 
 import static android.content.ContentValues.TAG;
 
@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jaestic_admin.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

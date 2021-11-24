@@ -1,4 +1,4 @@
-package com.example.admin_justeat;
+package com.grup2.jaestic_admin;
 
 import android.graphics.drawable.Drawable;
 import android.util.Log;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.jaestic_admin.R;
 
 import java.util.ArrayList;
 

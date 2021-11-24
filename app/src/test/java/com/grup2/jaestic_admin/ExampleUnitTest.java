@@ -1,4 +1,4 @@
-package com.example.admin_justeat;
+package com.grup2.jaestic_admin;
 
 import org.junit.Test;
 

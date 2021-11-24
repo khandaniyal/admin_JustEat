@@ -1,4 +1,4 @@
-package com.example.admin_justeat;
+package com.grup2.jaestic_admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+
+import com.example.jaestic_admin.R;
 
 import java.util.ArrayList;
 
