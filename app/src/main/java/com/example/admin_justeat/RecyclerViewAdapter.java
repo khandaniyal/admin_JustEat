@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.tagName.setText(array_names.get(position));
         holder.tagImage.setImageDrawable(array_imagePaths.get(position));
 
+
     }
 
     @Override
@@ -60,7 +62,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             tagName = itemView.findViewById(R.id.txtDishName);
             tagImage = itemView.findViewById(R.id.imageDishPhoto);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("RecyclerView", "onClick：" + getAdapterPosition());
+                    new Fragment_Dish();
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.Layout_container, nextFrag, "findThisFragment")
+                            .addToBackStack(null)
+                            .commit();
 
+
+                }
+            });
 
         }
     }
