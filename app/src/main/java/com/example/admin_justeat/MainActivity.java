@@ -37,14 +37,16 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
-
     }
     public FragmentManager getFm(){
         return getSupportFragmentManager();/*.beginTransaction().replace(R.id.container,new Fragment_Dish()).commit();*/
 
     }
+    /*
     public void showDish(FragmentManager fragmentManager){
         getFragmentManager().beginTransaction().replace(R.id.container,new Fragment_Dish()).commit();
     }
+
+     */
 
 }

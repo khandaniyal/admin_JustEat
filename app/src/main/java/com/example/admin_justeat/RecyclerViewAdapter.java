@@ -76,7 +76,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             });
         }
     }
-    public static void callFragment(){
+   /* public static void callFragment(){
         MainActivity.showDish(fragmentManager);
     }
+
+    */
+
 }
