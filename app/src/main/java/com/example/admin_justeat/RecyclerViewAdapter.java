@@ -26,17 +26,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
    // private ArrayList<String> array_definition;
 
-    public RecyclerViewAdapter(ArrayList<String> arrN , ArrayList<Drawable> arrI, FragmentManager fragmentManager){
+    public RecyclerViewAdapter(ArrayList<String> arrN , ArrayList<Drawable> arrI){
         array_names = arrN;
         array_imagePaths = arrI;
-        this.fragmentManager = fragmentManager;
         //array_definition = arrD;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlistfoodcategory, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
@@ -64,8 +63,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             Log.i("arrayList2", ""+array_names.size());
-            tagName = itemView.findViewById(R.id.txtDishName);
-            tagImage = itemView.findViewById(R.id.imageDishPhoto);
+            tagName = itemView.findViewById(R.id.txtDishName2);
+            tagImage = itemView.findViewById(R.id.imageDishPhoto3);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

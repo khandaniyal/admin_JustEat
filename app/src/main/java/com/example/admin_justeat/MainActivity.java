@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,13 +28,16 @@ public class MainActivity extends AppCompatActivity {
         names.add("pollo a la brasa 2");
         images.add(getDrawable(R.drawable.pollo2));//Me he quedado aquí
         images.add(getDrawable(R.drawable.pollo2));
+        names.add("pollo a la brasa 3");
+        images.add(getDrawable(R.drawable.pollo2));
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
         Log.i("arrayList", ""+names.size());
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(names, images,getFm());
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(names, images);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager((this)));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+
 
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
