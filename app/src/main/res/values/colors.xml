@@ -7,4 +7,19 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="rosa">#C42D67</color>
+    <color name="rosa2">#f0699d</color>
+
+    <color name="azul_oscuro">#282C5B</color>
+    <color name="azul_oscuro2">#4d528c</color>
+
+    <color name="beis">#FEFBE2</color>
+    <color name="beis2">#f2eba5</color>
+
+    <color name="verde_menta">#7FC4B7</color>
+    <color name="verde_menta2">#12a184</color>
+
+    <color name="verde_hierba">#3F914A</color>
+    <color name="verde_hierba2">#6bc778</color>
 </resources>

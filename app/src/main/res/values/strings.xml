@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Admin_JustEat</string>
+
+
+    <string name="title_ativity_main">JaEstic</string>
+    <string name="sub_title_activity_main">App admin</string>
+    <string name="cardViewCategory">Category</string>
+    <string name="cardViewAddCategory">Add Category</string>
+    <string name="cardViewAddDish">Add Dish</string>
+    <string name="cardViewOrders">Orders</string>
 </resources>
