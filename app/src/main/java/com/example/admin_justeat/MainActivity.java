@@ -2,9 +2,11 @@ package com.example.admin_justeat;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     CardView cardViewAddCategory;
     CardView cardViewAddDish;
     CardView cardViewOrders;
+    ImageView imgInfoUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         cardViewAddCategory = findViewById(R.id.cardViewAddCategory);
         cardViewAddDish = findViewById(R.id.cardViewAddDish);
         cardViewOrders = findViewById(R.id.cardViewOrders);
-
+        imgInfoUser = findViewById(R.id.imgInfoUser);
 
         // init constraintLayout
         constraintLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
@@ -41,6 +44,13 @@ public class MainActivity extends AppCompatActivity {
         // setting exit fade animation duration to 2 seconds
         animationDrawable.setExitFadeDuration(2000);
 
+
+        imgInfoUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //startActivity(new Intent(getApplicationContext(), InfoUserActivity.class));
+            }
+        });
 
         cardViewCategory.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -3,14 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android Proyectos/admin_JustEat/app/src/main/res/drawable/color_azul.xml" value="0.37864583333333335" />
-        <entry key="..\:/Android Proyectos/admin_JustEat/app/src/main/res/drawable/color_beis.xml" value="0.37864583333333335" />
-        <entry key="..\:/Android Proyectos/admin_JustEat/app/src/main/res/drawable/color_rosa.xml" value="0.37864583333333335" />
-        <entry key="..\:/Android Proyectos/admin_JustEat/app/src/main/res/drawable/color_verde_hierba.xml" value="0.37864583333333335" />
-        <entry key="..\:/Android Proyectos/admin_JustEat/app/src/main/res/drawable/color_verde_menta.xml" value="0.37864583333333335" />
-        <entry key="..\:/Android Proyectos/admin_JustEat/app/src/main/res/drawable/ic_menu.xml" value="0.37864583333333335" />
-        <entry key="..\:/Android Proyectos/admin_JustEat/app/src/main/res/drawable/rounded_corner.xml" value="0.37864583333333335" />
-        <entry key="..\:/Android Proyectos/admin_JustEat/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_info_user.xml" value="0.1734375" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
       </map>
     </option>
   </component>
