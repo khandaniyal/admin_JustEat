@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Food</string>
+    <string name="app_name">Admin_JustEat</string>
     <string name="login_username">Correu electrònic</string>
     <string name="login_pass">Contrasenya</string>
     <string name="login_err">Error d\'autenticació</string>

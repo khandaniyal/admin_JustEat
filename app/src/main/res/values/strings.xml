@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Food</string>
+    <string name="app_name">Admin_JustEat</string>
 
     <string name="login_username">Email</string>
     <string name="login_pass">Password</string>

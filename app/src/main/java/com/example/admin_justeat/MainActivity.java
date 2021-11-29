@@ -1,8 +1,5 @@
 package com.example.admin_justeat;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,25 +8,35 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth; // firebase session
     GoogleSignInClient mGoogleSignInClient;
-    GoogleSignInOptions gso;
+    DatabaseReference mDatabase;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         createRequest();
-        mAuth = FirebaseAuth.getInstance(); // initialise firebase
 
+        mAuth = FirebaseAuth.getInstance(); // initialise firebase
+        mDatabase= FirebaseDatabase.getInstance().getReference();
         setContentView(R.layout.activity_main);
 
         Button buttonLogout = findViewById(R.id.button_logout);
@@ -45,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Welcome " + mAuth.getCurrentUser().getEmail(),
                     Toast.LENGTH_SHORT).show();
             infoEmail.setText(mAuth.getCurrentUser().getEmail());
+
         }
 
 
@@ -73,10 +81,11 @@ public class MainActivity extends AppCompatActivity {
     private void createRequest() {
         GoogleSignInOptions gso = new GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
         // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
     }
+
 }

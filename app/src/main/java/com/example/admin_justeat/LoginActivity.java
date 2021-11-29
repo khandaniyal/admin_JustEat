@@ -36,19 +36,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
-
-    DatabaseReference mDatabase;
     private FirebaseAuth mAuth; // firebase session
     GoogleSignInClient mGoogleSignInClient;
     private final static int RC_SIGN_IN = 101;
+    DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mAuth = FirebaseAuth.getInstance(); // initialise firebase
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         setContentView(R.layout.activity_login);
 
@@ -79,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
         GoogleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signIn();
+                signIn();                
             }
         });
     }
@@ -118,6 +117,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
@@ -127,7 +127,6 @@ public class LoginActivity extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account.getIdToken());
 
-
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Toast.makeText(this, "Google sign in failed " + e.toString(), Toast.LENGTH_SHORT).show();
@@ -135,6 +134,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
+
+
     private void firebaseAuthWithGoogle(String IdToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(IdToken, null);
         mAuth.signInWithCredential(credential)
@@ -144,6 +145,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
+                            DatosGoogle();
                             updateUI(user);
                         } else {
                             Toast.makeText(getApplicationContext(),"hola",Toast.LENGTH_SHORT).show();
@@ -156,6 +158,17 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         LoginActivity.this.finish();
+
+    }
+    private void DatosGoogle() {
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        String personName = acct.getDisplayName();
+        String personEmail = acct.getEmail();
+        Map<String, Object> map2 =new HashMap<>();
+        map2.put("Name",personName);
+        map2.put("Email",personEmail);
+        mDatabase.child("Users").child(mAuth.getCurrentUser().getUid()).setValue(map2);
+
     }
 
     @Override
@@ -164,6 +177,7 @@ public class LoginActivity extends AppCompatActivity {
         if(user!=null){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+            LoginActivity.this.finish();
         }
         super.onStart();
     }

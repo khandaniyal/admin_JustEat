@@ -79,7 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task2) {
                                     if(task2.isSuccessful()){
                                         Log.i("prueba2","hoal");
-                                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
 
                                     }else{
 
