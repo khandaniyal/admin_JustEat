@@ -195,8 +195,8 @@ public class LoginActivity extends AppCompatActivity {
     private void Alert() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Vincular cuenta de gmail con google");
-        builder.setMessage("Si tienes una cuenta con gmail se sobreescribiran los datos de la cuenta a la de google\n" +
-                ".Estas seguro que quiere que se sobreescriban?");
+        builder.setMessage("Si tienes una cuenta con gmail se sobreescribiran los datos de la cuenta a la de google.\n" +
+                "¿Estas seguro que quiere que se sobreescriban?");
         builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 signIn();
