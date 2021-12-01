@@ -7,8 +7,13 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.35144927536231885" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.2346014492753623" />
+        <entry key="app/src/main/res/layout/added_category_cardview.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/category_list.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/home_bottom_nav.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/itemlistfoodcategory.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/loading.xml" value="0.33" />
+        <entry key="app/src/main/res/menu/bottom_navigation.xml" value="0.19375" />
       </map>
     </option>
   </component>

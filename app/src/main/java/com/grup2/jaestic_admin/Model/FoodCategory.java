@@ -1,6 +1,4 @@
-package com.grup2.jaestic_admin;
-
-import android.util.Log;
+package com.grup2.jaestic_admin.Model;
 
 import androidx.annotation.NonNull;
 
@@ -11,7 +9,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.LinkedList;
-import java.util.Locale;
+import java.util.Random;
 
 // Class to manage food categories
 public class FoodCategory {
@@ -26,6 +24,7 @@ public class FoodCategory {
     public int getId() { return id; }
     public String getName() { return name; }
     public String getDescription() { return description; }
+    public String getImagePath() { return imagePath; }
 
     // Constructor is called with info from the database and creates java object. To add new Food item, use
     // addToDatabase();
@@ -93,6 +92,7 @@ public class FoodCategory {
     static int greatestId() {
         int greatest = 0;
         for (FoodCategory cat : categories) if (cat.id > greatest) greatest = cat.id;
+        if (categories.size()==0) greatest = new Random().nextInt();
         return greatest;
     }
 

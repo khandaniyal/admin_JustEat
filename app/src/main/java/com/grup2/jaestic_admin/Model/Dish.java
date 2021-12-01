@@ -1,27 +1,20 @@
-package com.grup2.jaestic_admin;
-
-import android.provider.ContactsContract;
-import android.util.Log;
+package com.grup2.jaestic_admin.Model;
 
 import androidx.annotation.NonNull;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.Random;
-import java.util.function.Consumer;
 
 // Class to manage Food items
-public class Food {
+public class Dish {
     // List of all foods. It will be updated when the DB changes
-    public static LinkedList<Food> foods = new LinkedList<>();
+    public static LinkedList<Dish> foods = new LinkedList<>();
 
     private int id;
     private String name;
@@ -39,7 +32,7 @@ public class Food {
 
     // Constructor is called with info from the database and creates java object. To add new Food item, use
     // addToDatabase();
-    public Food(String name, String description, String imagePath, String categoryIDs, int price, int id) {
+    public Dish(String name, String description, String imagePath, String categoryIDs, int price, int id) {
         // Create the item
         this.id = id;
         this.name = name;
@@ -79,7 +72,7 @@ public class Food {
 
     // Method to retrieve the DB information as a Java list of objects
     static void snapshotToList(DataSnapshot snapshot) {
-        Food.foods = new LinkedList<>();
+        Dish.foods = new LinkedList<>();
         for (DataSnapshot foodSnapshot : snapshot.getChildren()) {
             // For each food item, retrieve the data.
 
@@ -97,9 +90,9 @@ public class Food {
             String categories = foodSnapshot.child("categories").getValue().toString();
             int price = Integer.parseInt(foodSnapshot.child("price").getValue().toString());
 
-            Food newFood = new Food(name, description, imagePath, categories, price, id);
+            Dish newFood = new Dish(name, description, imagePath, categories, price, id);
             // if it's already in the list, don't add it again (can happen due to connection problems)
-            for (Food existing : foods) if (newFood.equals(existing)) ok = false;
+            for (Dish existing : foods) if (newFood.equals(existing)) ok = false;
 
             // Finally if everything is OK, add it to the list
             if (ok) foods.add(newFood);
@@ -109,12 +102,14 @@ public class Food {
 
     static int greatestId() {
         int greatest = 0;
-        for (Food food : foods) if (food.id > greatest) greatest = food.id;
+        for (Dish food : foods) if (food.id > greatest) greatest = food.id;
+        // in case there is a connection problem and it doesn't detect the categories, use a random number istead (to prevent overwriting)
+        if (foods.size()==0) greatest = new Random().nextInt();
         return greatest;
     }
 
     // Compare everything except the id (to scan for repeated items)
-    public boolean equals(Food toCompare) {
+    public boolean equals(Dish toCompare) {
         if (!name.equals(toCompare.name)) return false;
         if (!description.equals(toCompare.description)) return false;
         if (!imagePath.equals(toCompare.imagePath)) return false;
@@ -123,8 +118,8 @@ public class Food {
     }
 
     // Get a Food object from the ID
-    public static Food fromID(int id) {
-        for (Food food : foods) if (id == food.id) return food;
+    public static Dish fromID(int id) {
+        for (Dish food : foods) if (id == food.id) return food;
         return null;
     }
 

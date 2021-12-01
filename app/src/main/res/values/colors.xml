@@ -13,4 +13,13 @@
     <color name="beige">#FEFBE2</color>
     <color name="green_sheen">#7FC4B7</color>
     <color name="may_green">#3F914A</color>
+
+
+    <color name="grey">#A5A5A5A5</color>
+    <color name="purple">#673AB7</color>
+    <color name="start_dark_blue">#1e4072</color>
+    <color name="center_light_blue">#3F577A</color>
+    <color name="end_darkest_blue">#002A67</color>
+    <color name="forest_green">#a7e0a5</color>
+    <color name="azul_oscuro">#282C5B</color>
 </resources>

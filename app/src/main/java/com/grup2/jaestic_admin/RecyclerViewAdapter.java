@@ -1,7 +1,5 @@
 package com.grup2.jaestic_admin;
 
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,13 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jaestic_admin.R;
+import com.grup2.jaestic_admin.Model.Dish;
 
 import java.util.LinkedList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-    LinkedList<Food> foods;
-    public RecyclerViewAdapter(LinkedList<Food> foods){
+    LinkedList<Dish> foods;
+    public RecyclerViewAdapter(LinkedList<Dish> foods){
         this.foods = foods;
     }
 

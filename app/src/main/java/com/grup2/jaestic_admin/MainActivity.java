@@ -1,7 +1,5 @@
 package com.grup2.jaestic_admin;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -11,8 +9,20 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
 import com.example.jaestic_admin.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.grup2.jaestic_admin.Fragments.AddFragment;
+import com.grup2.jaestic_admin.Fragments.BlankFragment;
+import com.grup2.jaestic_admin.Fragments.ListFoodFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.grup2.jaestic_admin.Model.Dish;
+import com.grup2.jaestic_admin.Model.FoodCategory;
+import com.grup2.jaestic_admin.Model.FoodCategory2;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,56 +32,43 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance(); // initialise firebase
-        Food.init();
+        Dish.init();
         FoodCategory.init();
+
+
+        //Log.i("DIVAC","Fuuds: " + Dish.foods.size());
+        //Log.i("DIVAC","Catagoreries: " + FoodCategory.categories.size());
 
         // It takes a little to load the database, so we will wait until it is loaded before loading the activity
         setContentView(R.layout.loading);
         SystemClock.sleep(1000);
-        if (Food.foods.size()==0 || FoodCategory.categories.size()==0) startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+
+        if ( (Dish.foods.size()==0 || FoodCategory.categories.size()==0) ) startActivity(new Intent(getApplicationContext(), MainActivity.class));
         else {
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.home_bottom_nav);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ListFoodFragment()).commit();
 
-            TextView infoEmail = findViewById(R.id.info_email);
+            BottomNavigationView bottomNav = findViewById(R.id.main_menu);
 
-            // Redirect to login screen.
-            Intent goToLogin = new Intent(getApplicationContext(), LoginActivity.class);
+            bottomNav.setOnItemSelectedListener(item -> {
+                Fragment selectedFragment = null;
+                switch (item.getItemId()){
+                    case R.id.nav_home:
+                        selectedFragment = new BlankFragment();
+                        break;
+                    case R.id.nav_list:
+                        selectedFragment = new ListFoodFragment();
+                        break;
 
-            if (null == mAuth.getCurrentUser()) {
-                Log.i("Firebase", "No user logged in, redirecting to login screen");
-                startActivity(goToLogin);
-            } else {
-                Log.i("Firebase", "Loaded user " + mAuth.getCurrentUser().getEmail());
-                Toast.makeText(getApplicationContext(), "Welcome " + mAuth.getCurrentUser().getEmail(),
-                        Toast.LENGTH_SHORT).show();
-                infoEmail.setText(mAuth.getCurrentUser().getEmail());
-            }
-
-            Button buttonLogout = findViewById(R.id.button_logout);
-            buttonLogout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mAuth.signOut();
-                    startActivity(goToLogin);
+                    case R.id.nav_add:
+                        selectedFragment = new AddFragment();
+                        break;
                 }
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+
+                return true;
             });
-
-            // PROVISIONAL MENTRE NO IMPLEMENTEM EL MENÚ
-            Button fuuds = findViewById(R.id.fuuds);
-            Intent goToFoods = new Intent(getApplicationContext(), FoodList.class);
-            fuuds.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(goToFoods);
-                }
-            });
-
-            FoodCategory.addToDatabase("pasta", "delicious things", "DEFAULT");
-
-            Log.i("DIVAC", "FOODS");
-            for (Food food : Food.foods) Log.i("DIVACK", food.toString());
-            Log.i("DIVAC", "CATEGORIES");
-            for (FoodCategory cat : FoodCategory.categories) Log.i("DIVACK", cat.toString());
         }
     }
 }

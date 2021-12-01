@@ -76,7 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task2) {
                                     if(task2.isSuccessful()){
-                                        Intent registerok = new Intent(getApplicationContext(), MainActivity.class);
+                                        Intent registerok = new Intent(getApplicationContext(), MainActivity2.class);
                                         startActivity(registerok);
                                     }else{
 

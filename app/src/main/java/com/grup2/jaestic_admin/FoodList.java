@@ -5,13 +5,10 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.jaestic_admin.R;
-
-import java.util.ArrayList;
+import com.grup2.jaestic_admin.Model.Dish;
 
 public class FoodList extends AppCompatActivity {
 
@@ -22,7 +19,7 @@ public class FoodList extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(Food.foods);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(Dish.foods);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager((this)));
