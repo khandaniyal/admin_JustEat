@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_username">Correu electrònic</string>
+    <string name="login_pass">Contrasenya</string>
+    <string name="login_err">Error d\'autenticació</string>
+    <string name="logout_button">Sortir</string>
+    <string name="login_button">Iniciar sessió</string>
+    <string name="login_register">Registrar-se</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_username">Correo electrónico</string>
+    <string name="login_pass">Contraseña</string>
+    <string name="login_err">Error de autenticación</string>
+    <string name="logout_button">Salir</string>
+    <string name="login_button">Iniciar sesión</string>
+    <string name="login_register">Registrarse</string>
+</resources>
