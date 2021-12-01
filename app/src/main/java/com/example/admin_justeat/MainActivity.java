@@ -8,13 +8,15 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecyclerViewAdapter.OnItemClickListener   {
 
     ArrayList<String> names = new ArrayList<>();
     ArrayList<Drawable> images = new ArrayList<>();
@@ -39,20 +41,24 @@ public class MainActivity extends AppCompatActivity {
         images.add(getDrawable(R.drawable.pollo2));
     */
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-
         Log.i("arrayList", ""+names.size());
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(names, images);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
 
+
         //recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-
     }
-    public FragmentManager getFm(){
-        return getSupportFragmentManager();/*.beginTransaction().replace(R.id.container,new Fragment_Dish()).commit();*/
 
+    @Override
+    public void onItemClick(int position) {
+        names.get(position);
+        Intent intent = new Intent(this, NewActivity.java );
+        startActivity(intent);
     }
+
+
     /*
     public void showDish(FragmentManager fragmentManager){
         getFragmentManager().beginTransaction().replace(R.id.container,new Fragment_Dish()).commit();

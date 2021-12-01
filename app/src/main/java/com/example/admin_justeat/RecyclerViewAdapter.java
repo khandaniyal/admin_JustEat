@@ -23,20 +23,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private static FragmentManager fragmentManager;
     private  ArrayList<String> array_names;
     private  ArrayList<Drawable> array_imagePaths;
+    private OnItemClickListener myOnItemClickListener ;
 
-   // private ArrayList<String> array_definition;
 
-    public RecyclerViewAdapter(ArrayList<String> arrN , ArrayList<Drawable> arrI){
+    // private ArrayList<String> array_definition;
+
+    public RecyclerViewAdapter(ArrayList<String> arrN , ArrayList<Drawable> arrI, OnItemClickListener onItemClickListener){
         array_names = arrN;
         array_imagePaths = arrI;
         //array_definition = arrD;
+        this.myOnItemClickListener = onItemClickListener
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview, parent, false);
-        ViewHolder holder = new ViewHolder(view);
+        ViewHolder holder = new ViewHolder(view, myOnItemClickListener);
         return holder;
     }
 
@@ -55,17 +58,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return array_names.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
         TextView tagName;
         ImageView tagImage;
         //TextView Definition;
+        OnItemClickListener  onItemClickListener;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, OnItemClickListener onItemClickListener) {
             super(itemView);
             Log.i("arrayList2", ""+array_names.size());
             tagName = itemView.findViewById(R.id.txtDishName2);
             tagImage = itemView.findViewById(R.id.imageDishPhoto3);
+            this.onItemClickListener = onItemClickListener;
 
+            itemView.setOnClickListener(this);
+            /*
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -73,6 +80,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     new MainActivity();
                 }
             });
+
+             */
+        }
+
+        @Override
+        public void onClick(View view) {
+            onItemClickListener.onItemClick(getAdapterPosition());
         }
     }
    /* public static void callFragment(){
@@ -80,5 +94,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     */
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
 
 }
