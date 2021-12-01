@@ -24,13 +24,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //View view = findViewById(getDrawable(R.drawable.pollo2));
+        for (int i = 0; i<20; i++){
+            names.add("Pollo a la brasa "+i);
+            images.add(getDrawable(R.drawable.pollo2));
+        }
+        /*
         names.add("Pollo a la brasa");
         names.add("pollo a la brasa 2");
         images.add(getDrawable(R.drawable.pollo2));//Me he quedado aquí
         images.add(getDrawable(R.drawable.pollo2));
         names.add("pollo a la brasa 3");
         images.add(getDrawable(R.drawable.pollo2));
-
+        names.add("pollo a la brasa 4");
+        images.add(getDrawable(R.drawable.pollo2));
+    */
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
         Log.i("arrayList", ""+names.size());
@@ -39,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
 
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        //recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
     }
     public FragmentManager getFm(){

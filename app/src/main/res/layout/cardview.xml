@@ -3,22 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="180dp"
-    android:layout_height="180dp">
+    android:layout_height="160dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
+        android:layout_width="match_parent"
+        android:layout_height="139dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -32,6 +29,7 @@
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_launcher_background" />
@@ -45,8 +43,10 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="40dp"
+                android:fontFamily="casual"
                 android:maxWidth="100dp"
-                android:text="pollo a la brasa "
+                android:text="Pollo a la brasa "
+                android:textColor="@color/white"
                 android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
