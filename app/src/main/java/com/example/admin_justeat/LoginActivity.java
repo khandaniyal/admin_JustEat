@@ -3,8 +3,10 @@ package com.example.admin_justeat;
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +27,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,6 +36,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
@@ -50,6 +54,12 @@ public class LoginActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         setContentView(R.layout.activity_login);
+
+
+        ////
+
+        ////
+
 
         // Text fields
         createRequest();
@@ -78,7 +88,8 @@ public class LoginActivity extends AppCompatActivity {
         GoogleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signIn();                
+                Alert();
+
             }
         });
     }
@@ -115,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
+        startActivityForResult(signInIntent,RC_SIGN_IN );
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -145,8 +156,8 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                            DatosGoogle();
                             updateUI(user);
+                            DatosGoogle();
                         } else {
                             Toast.makeText(getApplicationContext(),"hola",Toast.LENGTH_SHORT).show();
                         }
@@ -164,10 +175,10 @@ public class LoginActivity extends AppCompatActivity {
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         String personName = acct.getDisplayName();
         String personEmail = acct.getEmail();
-        Map<String, Object> map2 =new HashMap<>();
-        map2.put("Name",personName);
-        map2.put("Email",personEmail);
-        mDatabase.child("Users").child(mAuth.getCurrentUser().getUid()).setValue(map2);
+        Map<String, Object> map =new HashMap<>();
+        map.put("Name",personName);
+        map.put("Email",personEmail);
+        mDatabase.child("Users").child(mAuth.getCurrentUser().getUid()).setValue(map);
 
     }
 
@@ -180,5 +191,24 @@ public class LoginActivity extends AppCompatActivity {
             LoginActivity.this.finish();
         }
         super.onStart();
+    }
+    private void Alert() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Vincular cuenta de gmail con google");
+        builder.setMessage("Si tienes una cuenta con gmail se sobreescribiran los datos de la cuenta a la de google\n" +
+                ".Estas seguro que quiere que se sobreescriban?");
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                signIn();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User cancelled the dialog
+                Toast.makeText(getApplicationContext(),"", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.show();
+
     }
 }
