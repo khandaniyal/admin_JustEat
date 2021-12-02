@@ -1,4 +1,5 @@
 package com.grup2.jaestic_admin.recyclerview;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,11 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.jaestic_admin.R;
-import com.grup2.jaestic_admin.Model.FoodCategory;
+import com.grup2.jaestic_admin.Model.Dish;
 import java.util.LinkedList;
 
-public  class CategoryRVAdapter extends RecyclerView.Adapter<CategoryRVAdapter.ViewHolder>  {
-    private LinkedList<FoodCategory> foodCatName;
+public  class DishRVAdapter extends RecyclerView.Adapter<DishRVAdapter.ViewHolder>  {
+    private LinkedList<Dish> dishes;
     private Context context;
     private int myLayoutID;
     private ItemClickListener myListener;
@@ -20,11 +21,11 @@ public  class CategoryRVAdapter extends RecyclerView.Adapter<CategoryRVAdapter.V
 
 
     /*
-     * Dynamic builder, we can use the same recyclerview to display categories but
+     * Dynamic builder, we can use the same recyclerview to display dishes but
      * in different ways or in different activities or fragments
      */
-    public CategoryRVAdapter(LinkedList<FoodCategory> arrN, Context c, int layoutId){
-        foodCatName = arrN;
+    public DishRVAdapter(LinkedList<Dish> currentDish, Context c, int layoutId){
+        dishes = currentDish;
         context = c;
         myLayoutID = layoutId;
         this.myInflater = LayoutInflater.from(context);
@@ -40,19 +41,19 @@ public  class CategoryRVAdapter extends RecyclerView.Adapter<CategoryRVAdapter.V
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.catFoodName.setText(foodCatName.get(position).getName());
+        holder.catFoodName.setText(dishes.get(position).getName());
         //String imgName = foodCatName.get(position).getName();
         //Drawable imgDrawable = context.getResources().getDrawable(context.getResources()
         //                       .getIdentifier(imgName, "drawable", context.getPackageName()));
         //holder.catImgFood.setImageDrawable(imgDrawable);
 
-        //temporary image display using an integer -> change to string to geth db path
-        //holder.catImgFood.setImageResource(foodCatName.get(position).getImageName());
+        //display dish image(temporary image displayable)
+        //holder.catImgFood.setImageResource(dishes.get(position).getImageName());
     }
 
     @Override
     public int getItemCount() {
-        return foodCatName.size();
+        return dishes.size();
     }
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView catFoodName;
@@ -67,14 +68,12 @@ public  class CategoryRVAdapter extends RecyclerView.Adapter<CategoryRVAdapter.V
         @Override
         public void onClick(View view) { if(myListener != null) myListener.OnItemClick(view, getAdapterPosition()); }
     }
-    //get current id item (temporary)
-    public FoodCategory getItem(int id){
-        return foodCatName.get(id);
-    }
+    public Dish getItem(int id){ return dishes.get(id); }
+
     public void setClickListener(ItemClickListener itemClickListener){
         this.myListener = itemClickListener;
     }
-    //temporary interface->moving into a interface package
+
     public interface ItemClickListener{
         void OnItemClick(View v, int pos);
     }

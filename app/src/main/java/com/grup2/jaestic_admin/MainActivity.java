@@ -43,14 +43,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.loading);
         SystemClock.sleep(1000);
 
-
         if ( (Dish.foods.size()==0 || FoodCategory.categories.size()==0) ) startActivity(new Intent(getApplicationContext(), MainActivity.class));
         else {
             setContentView(R.layout.home_bottom_nav);
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ListFoodFragment()).commit();
-
             BottomNavigationView bottomNav = findViewById(R.id.main_menu);
-
             bottomNav.setOnItemSelectedListener(item -> {
                 Fragment selectedFragment = null;
                 switch (item.getItemId()){
@@ -66,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-
                 return true;
             });
         }

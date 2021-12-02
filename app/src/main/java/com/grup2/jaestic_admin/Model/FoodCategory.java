@@ -35,6 +35,10 @@ public class FoodCategory {
         this.description = description;
         this.imagePath = imagePath;
     }
+    //temporary constructor
+    public FoodCategory(String name) {
+        this.name = name;
+    }
 
     public static void addToDatabase(String name, String description, String imagePath) {
         DatabaseReference catRef = FirebaseDatabase.getInstance().getReference()
@@ -55,9 +59,7 @@ public class FoodCategory {
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
+            public void onCancelled(@NonNull DatabaseError error) { }
         });
     }
 
