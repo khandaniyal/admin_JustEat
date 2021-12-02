@@ -4,7 +4,8 @@
     <string name="login_err">Authentication failed</string>
     <string name="logout_button">Log out</string>
     <string name="login_button">Log in</string>
-    <string name="login_register">Sign up</string>
+    <string name="login_register" translatable="false">Sign up</string>
     <string name="app_name" translatable="false">JaEstic</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="loading">Loading</string>
 </resources>

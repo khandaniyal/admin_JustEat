@@ -27,9 +27,6 @@ public  class CategoryRVAdapter extends RecyclerView.Adapter<CategoryRVAdapter.V
     private ItemClickListener myListener;
     private LayoutInflater myInflater;
     StorageReference mStorage = FirebaseStorage.getInstance().getReference();
-
-
-
     /*
      * Dynamic builder, we can use the same recyclerview to display categories but
      * in different ways or in different activities or fragments
@@ -52,12 +49,6 @@ public  class CategoryRVAdapter extends RecyclerView.Adapter<CategoryRVAdapter.V
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.catFoodName.setText(foodCatName.get(position).getName());
-        //String imgName = foodCatName.get(position).getName();
-        //Drawable imgDrawable = context.getResources().getDrawable(context.getResources()
-        //                       .getIdentifier(imgName, "drawable", context.getPackageName()));
-        //holder.catImgFood.setImageDrawable(imgDrawable);
-        //temporary image display using an integer -> change to string to geth db path
-        //holder.catImgFood.setImageResource(foodCatName.get(position).getImageName());
         holder.catFoodName.setText(foodCatName.get(position).getName());
         FirebaseStorage.getInstance().getReference().child(foodCatName.get(position).getImagePath())
                 .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
