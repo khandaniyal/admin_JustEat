@@ -21,17 +21,17 @@
         android:background="@color/center_light_blue"
         android:outlineSpotShadowColor="@color/black"
         android:padding="6dp"/>
+
     <ImageView
         android:id="@+id/imgCategory"
         android:layout_width="100dp"
         android:layout_height="70dp"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_gravity="left"
         android:paddingLeft="14dp"
-        android:paddingRight="14dp"
-        app:srcCompat="@drawable/burg"
-        android:layout_alignParentLeft="true" />
+        android:paddingRight="14dp" />
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="70dp"
         android:layout_marginBottom="2dp"
-        android:hint="burger"
+        android:hint="@string/loading"
         android:textColor="@color/white"
         android:textStyle="bold" />
 

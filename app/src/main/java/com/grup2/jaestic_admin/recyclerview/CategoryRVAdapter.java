@@ -20,6 +20,7 @@ import com.google.firebase.storage.StorageReference;
 import com.grup2.jaestic_admin.Model.FoodCategory;
 import com.grup2.jaestic_admin.Model.FoodCategory2;
 import com.example.jaestic_admin.R;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.net.URI;
@@ -35,7 +36,7 @@ public  class CategoryRVAdapter extends RecyclerView.Adapter<CategoryRVAdapter.V
     private Context context;
     int myLayoutID;
 
-    StorageReference mStorage = FirebaseStorage.getInstance().getReference();
+    StorageReference mStorage;
 
     //In case we want to use the same view in diferent recycler views
     public CategoryRVAdapter(LinkedList<FoodCategory> arrN, Context c, int layoutId){
@@ -55,11 +56,21 @@ public  class CategoryRVAdapter extends RecyclerView.Adapter<CategoryRVAdapter.V
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.catFoodName.setText(foodCatName.get(position).getName());
-        //String imgName = foodCatName.get(position).getName();
-        //Drawable imgDrawable = context.getResources().getDrawable(context.getResources()
-        //                       .getIdentifier(imgName, "drawable", context.getPackageName()));
-        //holder.catImgFood.setImageDrawable(imgDrawable);
-        //setImageResource(foodCatName.get(position).getImagePath());;
+
+        FirebaseStorage.getInstance().getReference().child(foodCatName.get(position).getImagePath())
+                .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(holder.catImgFood);
+                Log.d("estorach",uri.toString());
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                Log.d("estorach", exception.toString() + foodCatName.get(position).getImagePath());
+            }
+        });
+
     }
 
     @Override

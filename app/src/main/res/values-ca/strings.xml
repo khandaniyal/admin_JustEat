@@ -6,4 +6,5 @@
     <string name="logout_button">Sortir</string>
     <string name="login_button">Iniciar sessió</string>
     <string name="login_register">Registrar-se</string>
+    <string name="loading">Carregant</string>
 </resources>
