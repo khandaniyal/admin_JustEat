@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Admin_JustEat" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Admin_JustEat" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Colors from the Coolors palette -->
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/space_cadet</item>
