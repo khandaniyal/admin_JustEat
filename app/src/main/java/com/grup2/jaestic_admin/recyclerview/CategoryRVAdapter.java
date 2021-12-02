@@ -73,7 +73,6 @@ public  class CategoryRVAdapter extends RecyclerView.Adapter<CategoryRVAdapter.V
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return foodCatName.size();
@@ -87,7 +86,6 @@ public  class CategoryRVAdapter extends RecyclerView.Adapter<CategoryRVAdapter.V
             catImgFood = itemView.findViewById(R.id.imgCategory);
             itemView.setOnClickListener(this);
         }
-
         @Override
         public void onClick(View view) { if(myListener != null) myListener.OnItemClick(view, getAdapterPosition()); }
     }

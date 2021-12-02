@@ -11,11 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jaestic_admin.R;
 import com.grup2.jaestic_admin.Model.FoodCategory;
-import com.grup2.jaestic_admin.Model.FoodCategory2;
 //import com.grup2.jaestic_admin.R;
 import com.grup2.jaestic_admin.recyclerview.CategoryRVAdapter;
-
-import java.util.ArrayList;
 
 
 public class ListFoodFragment extends Fragment {

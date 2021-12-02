@@ -17,11 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.jaestic_admin.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.grup2.jaestic_admin.Model.FoodCategory;
-import com.grup2.jaestic_admin.Model.FoodCategory2;
 import com.grup2.jaestic_admin.recyclerview.CategoryRVAdapter;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 
 public class AddCategory extends Fragment implements CategoryRVAdapter.ItemClickListener {

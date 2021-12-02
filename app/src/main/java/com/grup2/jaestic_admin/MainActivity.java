@@ -3,11 +3,6 @@ package com.grup2.jaestic_admin;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -20,9 +15,6 @@ import com.grup2.jaestic_admin.Fragments.ListFoodFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.grup2.jaestic_admin.Model.Dish;
 import com.grup2.jaestic_admin.Model.FoodCategory;
-import com.grup2.jaestic_admin.Model.FoodCategory2;
-
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
