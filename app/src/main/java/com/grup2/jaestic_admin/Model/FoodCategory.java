@@ -28,6 +28,8 @@ public class FoodCategory {
 
     // Constructor is called with info from the database and creates java object. To add new Food item, use
     // addToDatabase();
+    //empty builder
+    public FoodCategory() { }
     public FoodCategory(String name, String description, String imagePath, int id) {
         // Create the item
         this.id = id;

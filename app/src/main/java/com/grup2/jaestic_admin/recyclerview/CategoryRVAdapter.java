@@ -49,7 +49,7 @@ public  class CategoryRVAdapter extends RecyclerView.Adapter<CategoryRVAdapter.V
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.catFoodName.setText(foodCatName.get(position).getName());
-        holder.catFoodName.setText(foodCatName.get(position).getName());
+        //holder.catFoodName.setText(foodCatName.get(position).getName());
         FirebaseStorage.getInstance().getReference().child(foodCatName.get(position).getImagePath())
                 .getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override

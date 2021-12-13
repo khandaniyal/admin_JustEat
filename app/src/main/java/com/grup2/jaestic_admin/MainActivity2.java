@@ -19,7 +19,6 @@ import com.grup2.jaestic_admin.Model.FoodCategory;
 public class MainActivity2 extends AppCompatActivity {
 
     private FirebaseAuth mAuth; // firebase session
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

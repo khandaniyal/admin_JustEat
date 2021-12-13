@@ -35,7 +35,7 @@ public class AddCategory extends Fragment implements CategoryRVAdapter.ItemClick
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         addCatButton.setOnClickListener(e->{
-            FoodCategory addCategory = null;
+            FoodCategory addCategory = new FoodCategory();
             showAddCategoryDialog(addCategory);
         });
         return view;
@@ -48,7 +48,7 @@ public class AddCategory extends Fragment implements CategoryRVAdapter.ItemClick
     void showAddCategoryDialog(FoodCategory addCategory){
         LayoutInflater dialog = LayoutInflater.from(getContext());
         View dialogView = dialog.inflate(R.layout.dialog_add_category, null);
-
+        //
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
         alertDialogBuilder.setView(dialogView);
         //user input
