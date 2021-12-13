@@ -18,6 +18,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,11 +50,13 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 email=EditTextEmail.getText().toString();
+
                 password=EditTextPassword.getText().toString();
+
                 if (!email.isEmpty() && !password.isEmpty()){
                     if(password.length()>=6) {
                         Log.i("prueba", "ghoal");
-                        RegisterUser(email, password);
+                        RegisterUser(email, Encriptar(password));
                     }
                 }
 
@@ -92,5 +96,24 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+    public String Encriptar(String password) {
+        MessageDigest md = null;
+        try {
+            md = MessageDigest.getInstance("SHA-256");
+        }
+        catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        byte[] hash = md.digest(password.getBytes());
+        StringBuffer sb = new StringBuffer();
+
+        for(byte b : hash) {
+            sb.append(String.format("%02x", b));
+        }
+
+        return sb.toString();
     }
 }
