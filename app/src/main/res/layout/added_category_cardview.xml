@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/crdAddCategoryList"
+    android:layout_marginTop="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    app:cardCornerRadius="10dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"/>
+
+    <RelativeLayout
+        android:layout_width="188dp"
+        android:layout_height="162dp"
+        android:background="@color/center_light_blue"
+        android:orientation="horizontal"
+        android:outlineSpotShadowColor="@color/black"
+        android:padding="6dp" >
+
+        <TextView
+            android:id="@+id/lblBurger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="125dp"
+            android:layout_marginBottom="2dp"
+            android:hint="burger"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imgCategory"
+            android:layout_width="184dp"
+            android:layout_height="131dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="left"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="9dp"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            app:srcCompat="@drawable/burg" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="2dp"
+        android:layout_toEndOf="@+id/imgSat"
+        android:orientation="vertical"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/imgSat"/>
+
+
+</androidx.cardview.widget.CardView>

@@ -1,4 +1,4 @@
-package com.example.admin_justeat.DataBase;
+package com.grup2.jaestic_admin.DataBase;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
