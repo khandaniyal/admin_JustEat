@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             //String personId = acct.getId();
             //Uri personPhoto = acct.getPhotoUrl();
             textUserName.setText(personName);
+            //para mostrar nombre e imagen en la pantalla principal
         }
         // init constraintLayout
         constraintLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
