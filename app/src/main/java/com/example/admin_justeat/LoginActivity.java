@@ -28,16 +28,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.auth.UserInfo;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import com.google.firebase.database.ValueEventListener;
-
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
@@ -105,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // If Login is correct, load the Main activity
                             Log.d(TAG, "signInWithEmail:success");
-                            Intent loginOK = new Intent(getApplicationContext(), MainActivity.class);
+                            Intent loginOK = new Intent(getApplicationContext(), MainActivity3.class);
                             startActivity(loginOK);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -168,7 +162,7 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
     private void updateUI(FirebaseUser user) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MainActivity3.class);
         startActivity(intent);
         LoginActivity.this.finish();
 
@@ -188,7 +182,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         FirebaseUser user=mAuth.getCurrentUser();
         if(user!=null){
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, MainActivity3.class);
             startActivity(intent);
             LoginActivity.this.finish();
         }
