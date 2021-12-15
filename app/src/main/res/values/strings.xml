@@ -8,4 +8,8 @@
     <string name="cardViewAddCategory">Add Category</string>
     <string name="cardViewAddDish">Add Dish</string>
     <string name="cardViewOrders">Orders</string>
+
+    <!-- lateral menu -->
+    <string name="lateral_menu">Home</string>
+    <string name="prueba">prueba</string>
 </resources>

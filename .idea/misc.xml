@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_info_user.xml" value="0.1734375" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/jhxex/StudioProjects/admin_JustEat/app/src/main/res/layout/activity_info_user.xml" value="0.209375" />
+        <entry key="..\:/Users/jhxex/StudioProjects/admin_JustEat/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/jhxex/StudioProjects/admin_JustEat/app/src/main/res/layout/header.xml" value="0.1802536231884058" />
+        <entry key="..\:/Users/jhxex/StudioProjects/admin_JustEat/app/src/main/res/menu/lateral_menu.xml" value="0.209375" />
       </map>
     </option>
   </component>
