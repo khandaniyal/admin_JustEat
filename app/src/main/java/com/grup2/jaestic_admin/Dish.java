@@ -1,4 +1,4 @@
-package com.example.admin_justeat.Model;
+package com.grup2.jaestic_admin;
 
 import java.util.LinkedList;
 

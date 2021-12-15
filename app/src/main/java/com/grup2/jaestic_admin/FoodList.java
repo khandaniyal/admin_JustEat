@@ -11,7 +11,7 @@ import com.example.jaestic_admin.R;
 import com.grup2.jaestic_admin.Model.Dish;
 
 public class FoodList extends AppCompatActivity {
-
+//Deprecated class
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,9 +19,9 @@ public class FoodList extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(Dish.foods);
+     //   RecyclerViewAdapter adapter = new RecyclerViewAdapter(Dish.foods);
 
-        recyclerView.setAdapter(adapter);
+   //     recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager((this)));
 
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));

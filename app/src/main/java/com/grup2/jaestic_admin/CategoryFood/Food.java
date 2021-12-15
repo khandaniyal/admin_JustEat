@@ -1,4 +1,4 @@
-package com.example.admin_justeat.CategoryFood;
+package com.grup2.jaestic_admin.CategoryFood;
 
 public class Food {
     private String name;

@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.example.jaestic_admin.R;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements RecyclerViewAdapter.OnItemClickListener   {
@@ -53,10 +55,17 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
     @Override
     public void onItemClick(int position) {
+
+    }
+    /*
+
+    @Override
+    public void onItemClick(int position) {
         names.get(position);
         Intent intent = new Intent(this, NewActivity.java );
         startActivity(intent);
     }
+     */
 
 
     /*
