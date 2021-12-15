@@ -1,11 +1,3 @@
 <resources>
     <string name="app_name">Admin_JustEat</string>
-
-    <string name="login_username">Email</string>
-    <string name="login_pass">Password</string>
-    <string name="login_err">Authentication failed</string>
-    <string name="logout_button">Log out</string>
-    <string name="login_button">Log in</string>
-    <string name="login_register">Sign in</string>
-    <string name="login_google">Sign in with google</string>
 </resources>
