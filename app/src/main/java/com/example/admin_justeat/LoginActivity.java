@@ -50,11 +50,8 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
-
         ////
-
         ////
-
 
         // Text fields
         createRequest();
@@ -85,7 +82,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Alert();
-
             }
         });
     }
@@ -99,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // If Login is correct, load the Main activity
                             Log.d(TAG, "signInWithEmail:success");
-                            Intent loginOK = new Intent(getApplicationContext(), MainActivity3.class);
+                            Intent loginOK = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(loginOK);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -162,7 +158,7 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
     private void updateUI(FirebaseUser user) {
-        Intent intent = new Intent(this, MainActivity3.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         LoginActivity.this.finish();
 
@@ -182,7 +178,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         FirebaseUser user=mAuth.getCurrentUser();
         if(user!=null){
-            Intent intent = new Intent(this, MainActivity3.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             LoginActivity.this.finish();
         }
@@ -205,6 +201,5 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         builder.show();
-
     }
 }

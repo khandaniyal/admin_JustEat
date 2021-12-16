@@ -8,6 +8,13 @@
     <string name="login_button">Iniciar sessió</string>
     <string name="login_register">Registra</string>
     <string name="login_google">Sign in with google</string>
+    <string name="title_ativity_main">JaEstic</string>
+    <string name="sub_title_activity_main">App admin</string>
+    <string name="cardViewCategory">Categoria</string>
+    <string name="cardViewAddCategory">Afegeix categoria</string>
+    <string name="cardViewAddDish">Afegeix plat</string>
+    <string name="cardViewOrders">Ordres</string>
+    <string name="textViewEmail">Correo</string>
 
 
 </resources>

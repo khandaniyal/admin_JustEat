@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Admin_JustEat</string>
+
+
+    <string name="title_ativity_main">JaEstic</string>
+    <string name="sub_title_activity_main">App admin</string>
+    <string name="cardViewCategory">Category</string>
+    <string name="cardViewAddCategory">Add Category</string>
+    <string name="cardViewAddDish">Add Dish</string>
+    <string name="cardViewOrders">Orders</string>
+    <string name="login_username">Email</string>
+    <string name="login_pass">Password</string>
+    <string name="login_err">Authentication error</string>
+    <string name="logout_button">Logout</string>
+    <string name="login_button">Login</string>
+    <string name="login_register">Register</string>
+    <string name="login_google">Sign in with google</string>
+    <string name="textViewEmail">Email</string>
+
 </resources>
