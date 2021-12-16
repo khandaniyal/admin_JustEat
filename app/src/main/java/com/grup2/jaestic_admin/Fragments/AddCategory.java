@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,8 +36,7 @@ public class AddCategory extends Fragment implements CategoryRVAdapter.ItemClick
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         addCatButton.setOnClickListener(e->{
-            FoodCategory addCategory = new FoodCategory();
-            showAddCategoryDialog(addCategory);
+            showAddCategoryDialog();
         });
         return view;
     }
@@ -45,7 +45,7 @@ public class AddCategory extends Fragment implements CategoryRVAdapter.ItemClick
     public void OnItemClick(View v, int pos) {
         Toast.makeText(getContext(), "ITEM CLICKED " + adapter.getItem(pos), Toast.LENGTH_SHORT).show();
     }
-    void showAddCategoryDialog(FoodCategory addCategory){
+    void showAddCategoryDialog(){
         LayoutInflater dialog = LayoutInflater.from(getContext());
         View dialogView = dialog.inflate(R.layout.dialog_add_category, null);
         //
@@ -57,8 +57,13 @@ public class AddCategory extends Fragment implements CategoryRVAdapter.ItemClick
                 .setCancelable(false)
                 .setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        addCategory.categories.add(new FoodCategory(catName.getText().toString()));
+                        //add the category into firebase
+                        FoodCategory.addToDatabase(catName.getText().toString(), "test from admin2", "image path");
                         Toast.makeText(getContext(), catName.getText().toString() + " category saved", Toast.LENGTH_LONG).show();
+                        ///reload fragment
+                        getParentFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, new AddCategory()).commit();
+
                     }
                 })
                 .setNegativeButton("Cancel",

@@ -41,7 +41,7 @@ public class ListFoodFragment extends Fragment {
         //adding test images
         for (int i = 0; i<20; i++){
             names.add("Pollo a la brasa "+i);
-            images.add(this.getActivity().getDrawable(R.drawable.pollo2));
+            //images.add(this.getActivity().getDrawable(R.drawable.pollo2));
         }
         RecyclerView recyclerView2 = view.findViewById(R.id.recyclerviewDishes);
         Log.i("arrayList", ""+names.size());

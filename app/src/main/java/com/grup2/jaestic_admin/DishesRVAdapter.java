@@ -12,19 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.admin_justeat.MainActivity;
 import com.example.jaestic_admin.R;
-import com.grup2.jaestic_admin.Fragments.ListFoodFragment;
-import com.grup2.jaestic_admin.recyclerview.CategoryRVAdapter;
 
 import java.util.ArrayList;
 
 public class DishesRVAdapter extends RecyclerView.Adapter<DishesRVAdapter.ViewHolder> {
     private static FragmentManager fragmentManager;
-    private  ArrayList<String> array_names;
-    private  ArrayList<Drawable> array_imagePaths;
-
-
+    private ArrayList<String> array_names;
+    private ArrayList<Drawable> array_imagePaths;
     // private ArrayList<String> array_definition;
 
     public DishesRVAdapter(ArrayList<String> arrN , ArrayList<Drawable> arrI){
@@ -43,7 +38,7 @@ public class DishesRVAdapter extends RecyclerView.Adapter<DishesRVAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tagName.setText(array_names.get(position));
-        holder.tagImage.setImageDrawable(array_imagePaths.get(position));
+        //holder.tagImage.setImageDrawable(array_imagePaths.get(position));
     }
     @Override
     public int getItemCount() {
@@ -61,9 +56,4 @@ public class DishesRVAdapter extends RecyclerView.Adapter<DishesRVAdapter.ViewHo
             tagImage = itemView.findViewById(R.id.imageDishPhoto3);
         }
     }
-
-
-
-
-
 }

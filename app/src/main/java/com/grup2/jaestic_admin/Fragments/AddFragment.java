@@ -23,13 +23,15 @@ public class AddFragment extends Fragment {
         //initialise cardviews
         addCategory = view.findViewById(R.id.crdAddCategory);
         addDish = view.findViewById(R.id.crdAddDish);
+        //go to category fragment
         addCategory.setOnClickListener(e->{
             getParentFragmentManager().beginTransaction()
                                       .replace(R.id.fragment_container, new AddCategory()).commit();
 
         });
+
+        //go to dish fragment
         addDish.setOnClickListener(e->{
-            //go to dish fragment
         });
 
         return view;

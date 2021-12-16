@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         FoodCategory.init();
         //Log.i("DIVAC","Fuuds: " + Dish.foods.size());
         //Log.i("DIVAC","Catagoreries: " + FoodCategory.categories.size());
-        // It takes a little to load the database, so we will wait until it is loaded before loading the activity
+        // It takes a little while to load the database, until then we'll wait
         setContentView(R.layout.loading);
         SystemClock.sleep(1000);
 
