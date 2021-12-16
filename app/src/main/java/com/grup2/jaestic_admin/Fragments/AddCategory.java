@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 //import com.grup2.jaestic_admin.R;
 import com.example.jaestic_admin.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.grup2.jaestic_admin.Model.Dish;
 import com.grup2.jaestic_admin.Model.FoodCategory;
 import com.grup2.jaestic_admin.recyclerview.CategoryRVAdapter;
 
@@ -48,7 +49,7 @@ public class AddCategory extends Fragment implements CategoryRVAdapter.ItemClick
     void showAddCategoryDialog(){
         LayoutInflater dialog = LayoutInflater.from(getContext());
         View dialogView = dialog.inflate(R.layout.dialog_add_category, null);
-        //
+
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
         alertDialogBuilder.setView(dialogView);
         //user input
@@ -59,11 +60,19 @@ public class AddCategory extends Fragment implements CategoryRVAdapter.ItemClick
                     public void onClick(DialogInterface dialog, int id) {
                         //add the category into firebase
                         FoodCategory.addToDatabase(catName.getText().toString(), "test from admin2", "image path");
-                        Toast.makeText(getContext(), catName.getText().toString() + " category saved", Toast.LENGTH_LONG).show();
-                        ///reload fragment
-                        getParentFragmentManager().beginTransaction()
-                                .replace(R.id.fragment_container, new AddCategory()).commit();
-
+                        //gets the greatest id and adds
+                        try {
+                            Thread.sleep(2000);
+                            //test adding dish
+                            /*Dish.addToDatabase("random dish", "dish upload test",
+                                              "caca", FoodCategory.IDsFromCategories(FoodCategory.categories.get(13)),7);*/
+                            Toast.makeText(getContext(), catName.getText().toString() + " category saved", Toast.LENGTH_LONG).show();
+                            ///reload fragment
+                            getParentFragmentManager().beginTransaction()
+                                    .replace(R.id.fragment_container, new AddCategory()).commit();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                 })
                 .setNegativeButton("Cancel",

@@ -46,7 +46,8 @@ public class Dish {
     public static void addToDatabase(String name, String description, String categoryImagePath, FoodCategory[] categories, int price) {
         DatabaseReference foodRef = FirebaseDatabase.getInstance().getReference()
                 .child("Categories")
-                .child("Foods");
+                .child("Foods")
+                .child("" + greatestId() + 1);
         foodRef.child("name").setValue(name);
         foodRef.child("description").setValue(description);
         foodRef.child("imagePath").setValue(categoryImagePath);
