@@ -32,6 +32,7 @@ public class DishesRVAdapter extends RecyclerView.Adapter<DishesRVAdapter.ViewHo
         array_imagePaths = arrI;
         //array_definition = arrD;
     }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
