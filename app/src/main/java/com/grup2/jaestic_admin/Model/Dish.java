@@ -43,13 +43,13 @@ public class Dish {
         categories = FoodCategory.categoriesFromIDs(categoryIDs);
     }
 
-    public static void addToDatabase(String name, String description, String imagePath, FoodCategory[] categories, int price) {
+    public static void addToDatabase(String name, String description, String categoryImagePath, FoodCategory[] categories, int price) {
         DatabaseReference foodRef = FirebaseDatabase.getInstance().getReference()
-                .child("Foods")
-                .child(""+(greatestId()+1));
+                .child("Categories")
+                .child("Foods");
         foodRef.child("name").setValue(name);
         foodRef.child("description").setValue(description);
-        foodRef.child("imagePath").setValue(imagePath);
+        foodRef.child("imagePath").setValue(categoryImagePath);
         foodRef.child("price").setValue(price);
         foodRef.child("categories").setValue(FoodCategory.IDsFromCategories(categories));
     }
@@ -57,7 +57,7 @@ public class Dish {
     // Database reference for retrieving data
     public static void init() {
         // this will attach the reference to the food node so it will be updated when the DB changes
-        FirebaseDatabase.getInstance().getReference().child("Foods").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("Categories").child("Foods").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 snapshotToList(snapshot);
