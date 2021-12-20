@@ -59,7 +59,8 @@ public class AddCategory extends Fragment implements CategoryRVAdapter.ItemClick
                 .setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //add the category into firebase
-                        FoodCategory.addToDatabase(catName.getText().toString(), "test from admin2", "image path");
+                        FoodCategory.addToDatabase(catName.getText().toString(), "test from admin2",
+                                "CategoryImages/" + catName.getText().toString() + ".png");
                         //gets the greatest id and adds
                         try {
                             Thread.sleep(2000);
