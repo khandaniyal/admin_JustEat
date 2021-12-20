@@ -10,7 +10,7 @@
     <string name="title_ativity_main">JaEstic</string>
     <string name="sub_title_activity_main">App admin</string>
     <string name="cardViewCategory">Categoria</string>
-    <string name="cardViewAddCategory">Agragar categoria</string>
+    <string name="cardViewAddCategory">Añadir categoria</string>
     <string name="cardViewAddDish">Añadir plato</string>
     <string name="cardViewOrders">Ordenes</string>
     <string name="textViewEmail">Correo</string>

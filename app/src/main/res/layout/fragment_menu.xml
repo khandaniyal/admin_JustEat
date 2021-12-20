@@ -117,7 +117,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:text="@string/cardViewCategory"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     app:fontFamily="@font/baloo" />
 
                 <ImageView
@@ -153,7 +153,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:text="@string/cardViewAddDish"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     app:fontFamily="@font/baloo" />
 
                 <ImageView
@@ -201,7 +201,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:text="@string/cardViewAddCategory"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     app:fontFamily="@font/baloo" />
 
                 <ImageView
@@ -237,7 +237,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:text="@string/cardViewOrders"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     app:fontFamily="@font/baloo" />
 
                 <ImageView
