@@ -16,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.jaestic_admin.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -118,7 +120,9 @@ public class MenuFragment extends Fragment {
         cardViewCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"test", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Going to Category", Toast.LENGTH_SHORT).show();
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new ListFoodFragment()).commit();
 
             }
         });
@@ -126,21 +130,25 @@ public class MenuFragment extends Fragment {
         cardViewAddCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"test", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Going to Add Category", Toast.LENGTH_SHORT).show();
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new AddCategory()).commit();
             }
         });
 
         cardViewAddDish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"test", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Going to Add Dish", Toast.LENGTH_SHORT).show();
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new AddFragment()).commit();
             }
         });
 
         cardViewOrders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"test", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Going to Orders", Toast.LENGTH_SHORT).show();
             }
         });
         return view;

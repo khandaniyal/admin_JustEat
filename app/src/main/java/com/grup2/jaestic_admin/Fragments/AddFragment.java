@@ -32,6 +32,7 @@ public class AddFragment extends Fragment {
 
         //go to dish fragment
         addDish.setOnClickListener(e->{
+
         });
 
         return view;

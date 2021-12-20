@@ -57,11 +57,9 @@ public class RegisterActivity extends AppCompatActivity {
                 if (!email.isEmpty() && !password.isEmpty()){
                     if(password.length()>=6) {
                         Log.i("prueba", "ghoal");
-                        RegisterUser(email, Encriptar(password));
+                        RegisterUser(email, password);
                     }
                 }
-
-
             }
         });
 
@@ -76,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
                     // If Login is correct, load the Main activity
                     Map<String, Object> map =new HashMap<>();
                     map.put("email",email);
-                    map.put("password",password);
+                    map.put("password",Encriptar(password));
                     String id= mAuth.getCurrentUser().getUid();
 
                     mDatabase.child("Users").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {

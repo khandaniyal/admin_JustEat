@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.grup2.jaestic_admin.FoodList">
+    tools:context="com.grup2.jaestic_admin.FoodList"
+    android:id="@+id/activity_food_list">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             });
         }*/
         setContentView(R.layout.home_bottom_nav);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ListFoodFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MenuFragment()).commit();
         BottomNavigationView bottomNav = findViewById(R.id.main_menu);
         bottomNav.setOnItemSelectedListener(item -> {
             Fragment selectedFragment = null;

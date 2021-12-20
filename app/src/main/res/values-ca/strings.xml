@@ -15,4 +15,7 @@
     <string name="cardViewAddDish">Afegeix plat</string>
     <string name="cardViewOrders">Ordres</string>
     <string name="textViewEmail">Correo</string>
+    <string name="loading">Carregant</string>
+    <string name="login_or">O</string>
+    <string name="login">Iniciar Sessió</string>
 </resources>
