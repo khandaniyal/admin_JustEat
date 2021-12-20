@@ -15,6 +15,6 @@
     <string name="cardViewOrders">Ordenes</string>
     <string name="textViewEmail">Correo</string>
     <string name="loading">Cargando</string>
-    <string name="login_or">O</string>
+    <string name="login_or">¿No tienes cuenta? Crear una.</string>
     <string name="login">Iniciar Sesión</string>
 </resources>
