@@ -41,7 +41,7 @@
                         android:id="@+id/imgDish"
                         android:layout_width="136dp"
                         android:layout_height="97dp"
-                        android:src="@drawable/dish" />
+                        android:src="@drawable/ic_dish" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -72,7 +72,7 @@
                         android:id="@+id/imgCatgeory"
                         android:layout_width="136dp"
                         android:layout_height="97dp"
-                        android:src="@drawable/dish" />
+                        android:src="@drawable/ic_dish" />
 
                     <TextView
                         android:layout_width="wrap_content"
